@@ -7,9 +7,9 @@ st.title("Unit Converter")
 
 def distance_converter(value, from_unit, to_unit):
     units = {
-        "Metres": 1,
-        "Kilometres": 1000,
-        "Centimetres": 0.01,
+        "metres": 1,
+        "kilometres": 1000,
+        "centimetres": 0.01,
         "millimetres": 0.001,
         "miles": 1609.34,
         "feet": 0.3048,
@@ -20,27 +20,27 @@ def distance_converter(value, from_unit, to_unit):
     return result
 
 def temperature_converter(value, from_unit, to_unit):
-    if from_unit == "Celsius" and to_unit == "Fahrenheit":
+    if from_unit == "celsius" and to_unit == "fahrenheit":
         return (value * 9/5) + 32
-    elif from_unit == "Celsius" and to_unit == "Kelvin":
+    elif from_unit == "celsius" and to_unit == "kelvin":
         return value + 273.15
-    elif from_unit == "Fahrenheit" and to_unit == "Celsius":
+    elif from_unit == "fahrenheit" and to_unit == "celsius":
         return (value - 32) * 5/9
-    elif from_unit == "Fahrenheit" and to_unit == "Kelvin":
+    elif from_unit == "fahrenheit" and to_unit == "kelvin":
         return (value - 32) * 5/9 + 273.15
-    elif from_unit == "Kelvin" and to_unit == "Celsius":
+    elif from_unit == "kelvin" and to_unit == "celsius":
         return value - 273.15
-    elif from_unit == "Kelvin" and to_unit == "Fahrenheit":
+    elif from_unit == "kelvin" and to_unit == "fahrenheit":
         return (value - 273.15) * 9/5 + 32
     else:
         return value
     
 def weight_converter(value, from_unit, to_unit):
     units = {
-        "Grams": 1,
-        "Kilograms": 1000,
-        "Pounds": 453.592,
-        "Ounces": 28.3495
+        "grams": 1,
+        "kilograms": 1000,
+        "pounds": 453.592,
+        "ounces": 28.3495
     }
     return value * units[from_unit] / units[to_unit]
 
@@ -50,9 +50,9 @@ category = st.sidebar.radio("Choose the type of conversion", ["Length", "Tempera
 
 
 if category == "Length":
-    from_unit = st.selectbox("Select the unit you want to convert from", ["Kilometres", "Metres", "Centimetres", "millimetres", "miles", "feet", "yards", "inches"])
+    from_unit = st.selectbox("Select the unit you want to convert from", ["kilometres", "metres", "centimetres", "millimetres", "miles", "feet", "yards", "inches"])
 
-    to_unit = st.selectbox("Select the unit you want to convert to", ["Kilometer", "Metre", "Centimetre", "miles", "feet", "inches"])
+    to_unit = st.selectbox("Select the unit you want to convert to", ["kilometres", "metres", "centimetres", "millimetres", "miles", "feet", "yards", "inches"])
 
     value = st.number_input("Enter the value")
 
@@ -72,9 +72,9 @@ elif category == "Temperature":
         st.write(f"{value} {from_unit} = {result:.2f} {to_unit}")
 
 elif category == "Weight":
-    from_unit = st.selectbox("Select the unit you want to convert from", ["Grams", "Kilograms", "Pounds", "Ounces"])
+    from_unit = st.selectbox("Select the unit you want to convert from", ["grams", "kilograms", "pounds", "ounces"])
 
-    to_unit = st.selectbox("Select the unit you want to convert to", ["Grams", "Kilograms", "Pounds", "Ounces"])
+    to_unit = st.selectbox("Select the unit you want to convert to", ["grams", "kilograms", "pounds", "ounces"])
 
     value = st.number_input("Enter the value")
 
